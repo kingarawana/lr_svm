@@ -1,0 +1,3 @@
+*.pyc
+.ipynb_*
+.DS_Store
