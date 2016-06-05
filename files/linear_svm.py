@@ -7,8 +7,6 @@ def svm_loss_naive(W, X, y, reg):
   #####################################
   # Your Code Here
 
-  # compute the loss and the gradient
-
   num_classes = W.shape[0]
   num_images = len(y)
 
@@ -46,8 +44,6 @@ def svm_loss_vectorized(W, X, y, reg):
   #####################################
   # Your Code Here
 
-
-
   num_classes = W.shape[0]
   num_images = X.shape[1]
 
@@ -64,7 +60,6 @@ def svm_loss_vectorized(W, X, y, reg):
   binary[binary > 0] = 1
   column_count = np.sum(binary, axis=0)
   binary[y, range(num_images)] = -column_count
-  # print binary[1:20, 1:20]
   dW = np.dot(binary, X.T)
 
   loss /= num_images
