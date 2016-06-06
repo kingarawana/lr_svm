@@ -25,3 +25,6 @@ The goal is for the participants to implement the code to calculate the loss and
 3. run ```jupyter notebook```
 
 [conda]:<https://docs.continuum.io/anaconda/install>
+
+### Equations to Implement
+![Image of equations](https://raw.githubusercontent.com/kingarawana/lr_svm/master/linear_regression_svm.png)
