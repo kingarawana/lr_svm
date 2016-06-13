@@ -57,7 +57,28 @@ def svm_loss_vectorized(W, X, y, reg, delta=1):
   #####################################
   # Your Code Here
 
+  N = len(y)
 
+  scores = W.dot(X)
+  correct_scores = scores[y, range(N)]
+  margin = scores - correct_scores + delta
+
+  margin[y, range(N)] = 0
+
+  margin = np.maximum(np.zeros_like(margin), margin)
+
+  loss = np.sum(margin)
+
+  binary = margin
+  binary[binary > 0] = 1
+  column_count = np.sum(binary, axis=0)
+
+  binary[y, range(N)] = -column_count
+
+  dW = np.dot(binary, X.T)
+
+  loss += 0.5 * reg * np.sum(W * W)
+  loss /= N
 
   #####################################
 
