@@ -29,12 +29,13 @@ def svm_loss_naive(W, X, y, reg, delta=1):
           dW[y[i]] -= X[:, i]
 
 
-  loss += 0.5 * reg * np.sum(W * W)
+  
   dW += reg * W
 
   loss /= num_images
   dW /= num_images
 
+  loss += 0.5 * reg * np.sum(W * W)
 
 
   
