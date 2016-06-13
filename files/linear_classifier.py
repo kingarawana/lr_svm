@@ -13,7 +13,7 @@ class LinearSVM:
     # Your Code Here
     # Hint: reuse the functions you've already implemented in linear_svm
 
-    loss, grad = svm_loss_vectorized(X_batch, y_batch, reg)
+    loss, grad = svm_loss_vectorized(self.W, X_batch, y_batch, reg)
     
     #####################################
     return loss, grad
