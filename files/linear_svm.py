@@ -31,11 +31,9 @@ def svm_loss_naive(W, X, y, reg, delta=1):
 
 
   
-  dW += reg * W
-
-  loss /= num_images
   dW /= num_images
-
+  dW += reg * W
+  loss /= num_images
   loss += 0.5 * reg * np.sum(W * W)
 
   
@@ -76,6 +74,9 @@ def svm_loss_vectorized(W, X, y, reg, delta=1):
   binary[y, range(N)] = -column_count
 
   dW = np.dot(binary, X.T)
+
+  dW /= N
+  dW += reg * W
 
   loss += 0.5 * reg * np.sum(W * W)
   loss /= N
