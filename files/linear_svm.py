@@ -78,8 +78,9 @@ def svm_loss_vectorized(W, X, y, reg, delta=1):
   dW /= N
   dW += reg * W
 
-  loss += 0.5 * reg * np.sum(W * W)
   loss /= N
+  loss += 0.5 * reg * np.sum(W * W)
+  
 
   #####################################
 
